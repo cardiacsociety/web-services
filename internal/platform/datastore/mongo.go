@@ -47,11 +47,11 @@ func (m *MongoDBConnection) Connect() error {
         
  dialInfo := mgo.DialInfo{
         Addrs:    []string{
-            "devsandbox-shard-00-00.leabq.mongodb.net:27017",
-            "devsandbox-shard-00-01.leabq.mongodb.net:27017",
-            "devsandbox-shard-00-02.leabq.mongodb.net:27017",
+            "cluster-z9lb0n39-shard-00-00.xb4wf.mongodb.net:27017",
+            "cluster-z9lb0n39-shard-00-01.xb4wf.mongodb.net:27017",
+            "cluster-z9lb0n39-shard-00-02.xb4wf.mongodb.net:27017",
         },
-        Username: "intergy-user",
+        Username: "csanz_at1920",
         Password: "189kent$",
     }
     tlsConfig := &tls.Config{}
