@@ -43,7 +43,23 @@ func (m *MongoDBConnection) Connect() error {
 	if err != nil {
 		return err
 	}
-	m.Session, err = mgo.Dial(m.DSN)
+	//m.Session, err = mgo.Dial(m.DSN)
+        
+ dialInfo := mgo.DialInfo{
+        Addrs:    []string{
+            "devsandbox-shard-00-00.leabq.mongodb.net:27017",
+            "devsandbox-shard-00-01.leabq.mongodb.net:27017",
+            "devsandbox-shard-00-02.leabq.mongodb.net:27017",
+        },
+        Username: "intergy-user",
+        Password: "189kent$",
+    }
+    tlsConfig := &tls.Config{}
+    dialInfo.DialServer = func(addr *mgo.ServerAddr) (net.Conn, error) {
+        conn, err := tls.Dial("tcp", addr.String(), tlsConfig) // add TLS config
+        return conn, err
+    }
+    m.Session, err = mgo.DialWithInfo(&dialInfo)
 	return err
 }
 
