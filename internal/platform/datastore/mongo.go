@@ -51,7 +51,7 @@ func (m *MongoDBConnection) Connect() error {
             "cluster-z9lb0n39-shard-00-01.xb4wf.mongodb.net:27017",
             "cluster-z9lb0n39-shard-00-02.xb4wf.mongodb.net:27017",
         },
-        Username: "heroku_z9lb0n39",
+        Username: "csanz_at1920",
         Password: "189kent$",
     }
     tlsConfig := &tls.Config{}
