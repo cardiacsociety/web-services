@@ -37,7 +37,7 @@ func (mq MongoQuery) Do(c *mgo.Collection, r *[]interface{}) error {
 	return q.All(r)
 }
 
-// Connect to MongoDB
+// Connect to MongoDB - Connection string
 func (m *MongoDBConnection) Connect() error {
 	err := m.checkFields()
 	if err != nil {
