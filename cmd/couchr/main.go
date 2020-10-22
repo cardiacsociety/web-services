@@ -4,7 +4,6 @@ import (
 	"github.com/34South/envr"
 	"github.com/cardiacsociety/web-services/internal/platform/datastore"
 	"github.com/couchbase/gocb/v2"
-        "github.com/couchbase/gocbcore/v9/scram"
 	"log"
 )
 

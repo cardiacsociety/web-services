@@ -1,6 +1,8 @@
 package datastore
 
 import (
+        "crypto/tls"
+        "net"
 	"github.com/pkg/errors"
 	"gopkg.in/mgo.v2"
 )
