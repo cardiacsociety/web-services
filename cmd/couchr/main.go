@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/34South/envr"
 	"github.com/cardiacsociety/web-services/internal/platform/datastore"
-	"gopkg.in/couchbase/gocb.v1"
+	"gopkg.in/couchbase/gocb.v2"
 	"log"
 )
 
