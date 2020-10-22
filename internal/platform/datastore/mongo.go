@@ -1,6 +1,8 @@
 package datastore
 
 import (
+        "crypto/tls"
+        "net"
 	"github.com/pkg/errors"
 	"gopkg.in/mgo.v2"
 )
@@ -43,7 +45,23 @@ func (m *MongoDBConnection) Connect() error {
 	if err != nil {
 		return err
 	}
-	m.Session, err = mgo.Dial(m.DSN)
+	//m.Session, err = mgo.Dial(m.DSN)
+        
+ dialInfo := mgo.DialInfo{
+        Addrs:    []string{
+            "cluster-z9lb0n39-shard-00-00.xb4wf.mongodb.net:27017",
+            "cluster-z9lb0n39-shard-00-01.xb4wf.mongodb.net:27017",
+            "cluster-z9lb0n39-shard-00-02.xb4wf.mongodb.net:27017",
+        },
+        Username: "csanz_at1920",
+        Password: "189kent$",
+    }
+    tlsConfig := &tls.Config{}
+    dialInfo.DialServer = func(addr *mgo.ServerAddr) (net.Conn, error) {
+        conn, err := tls.Dial("tcp", addr.String(), tlsConfig) // add TLS config
+        return conn, err
+    }
+    m.Session, err = mgo.DialWithInfo(&dialInfo)
 	return err
 }
 
