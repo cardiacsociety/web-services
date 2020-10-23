@@ -1,8 +1,8 @@
 module github.com/cardiacsociety/web-services
 
-go 1.12
+go 1.14
 
-// +heroku goVersion go1.11
+// +heroku goVersion go1.14
 // +heroku install ./...
 
 require (
