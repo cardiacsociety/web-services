@@ -21,7 +21,8 @@ type Datastore struct {
 func New() *Datastore {
 
 	// Cache is used to store results of 'background' jobs
-	c := cache.New(5*time.Minute, 10*time.Minute)
+	//c := cache.New(5*time.Minute, 10*time.Minute)
+        c := cache.New(15*time.Minute, 20*time.Minute)
 
 	return &Datastore{
 		Cache: c,
